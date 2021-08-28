@@ -362,7 +362,7 @@ function setDaysTimeout(callback,days) {
 }
 
 const checkForMeeting = (request, response) => {
-			   var api_key="928fc7aa2ceff0bb06689e3c8c2a4c9dea33dcf2";
+			   var api_key=//API Key
 			   fetch(`http://twenfluence.tech/api/v1/show_users.php?hash=${api_key}&type=emails`)
 			   .then(response => response.json())
 			   .then(data => {
