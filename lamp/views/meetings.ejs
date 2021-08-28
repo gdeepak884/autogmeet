@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	  <link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+    <title>Meetings - Lamp - Attend meetings while sleeping, working or at party.</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/4.0/examples/cover/cover.css" rel="stylesheet">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-M7VKDLN');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta name="title" content="Lamp - Autogmeet" >
+    <meta name="description" content="Attend meetings while sleeping, working or at party">
+    <meta name="keywords" content="Attend meetings while sleeping, working or at party">
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="Lamp - Autogmeet">
+    <meta itemprop="description" content="Attend meetings while sleeping, working or at party">
+    <meta itemprop="url" content="https://autogmeet.herokuapp.com/">
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://autogmeet.herokuapp.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Lamp - Autogmeet">
+    <meta property="og:description" content="Attend meetings while sleeping, working or at party">
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lamp - Autogmeet">
+    <meta name="twitter:description" content="Attend meetings while sleeping, working or at party">
+  </head>
+  <body class="text-center">
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand" style="color:#5fe6da;">Lamp</h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link" href="../">Home</a>
+            <a  class="nav-link active" href="/setup">Setup</a>
+            <a class="nav-link" href="/build">Build</a>
+          </nav>
+        </div>
+      </header>
+    <main role="main" class="inner cover">
+        <!-- <div class="table-wrapper-scroll-y my-custom-scrollbar"></div> -->
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Date & Time</th>
+                <th scope="col">Meet URL</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% for(meeting in data) {%>
+              <tr>
+                <th scope="row"><%= data[meeting].mid %></th>
+                <td><%= data[meeting].mname %></td>
+                <td><%= data[meeting].mtime %></td>
+                <td><%= data[meeting].murl %></td>
+              </tr>
+            <% } %>
+            </tbody>
+          </table>
+          
+        <!-- </div> -->
+    </main>
+	<!-- <style>
+        .my-custom-scrollbar {
+        position: relative;
+        height: 200px;
+        overflow: auto; 
+        }
+       .table-wrapper-scroll-y {
+       display: block;
+       } 
+    </style> -->
+	  <footer class="mastfoot mt-auto">
+      <% if(username){ %>
+        <a href="/logout" title="Logout"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABpklEQVRIie2WMUvDQBTHf7ra1VgpxVrBfgT9DBUrOulXkDqIn6aguJai0A7OiosoOmiH4uSgg6IotlOsIQ73jqbBJpf26NQ/HI9c/u/97i7hJTDRmDSVwJsFNoA1ICfXAM/AE3AGNIAXW4vLABWgC/gxwwNqwMKo0BLQlqIuUAW2gQIwI6MA7Mg9V7xtYH1Y6B5qBz5qF4sGOXnghN7uy0mhJUn8BfaTJgMHkuuRYOcZesc7DDQI94FvYN4k4ZDe8Y6qU6lViTNmUUfkYvZM47QktbqokxyoMmqFVQtQrZrU3A1OTodMRYkNi2BdqxhlekStbtmg4DVwZeArSM1WlKkjppRBQd2t4pQSXyc4GT5qfe0ZFDSVXlzfdyEMfpeYtgjWtT6iwE2JKxbBqxLvo8DnErcsgjclXkSZ0sCPjLgGYvJy5VHNw8Xg8R1LwboFcF08R3FQZGVfwKsF8BvwCcyZgEH92uRCc5fALeD8A3bkXrih5LDwN3IjoKaANNiROV881hUE6OiH5pyB2SNqFngIQPVoYbfpGMHHAtVygDv6X7aJIvUHVlZ/w08X7pIAAAAASUVORK5CYII="/></a>
+      <% }else{ %>
+        <a href="/login" title="Login"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABuElEQVRIie2WO0sDURCFP19FQDuNmii4MUV6bX30vnr9CVqZ/BE7tRBbnxEh/0AQNDZaCIKiiA8sRAWFJIZY3FlyuSTZu2aTKgeGgeHMOXcmubsLLdghDFxIhJtl2gdcAiWJa2Cw2aZNMQ8DV2Lk5pJRa8jazw0D11g/0Fm9JiMSOk6BLOWpXGOklhWODqeCTlUMAO/AqwdPN66GN9HqtzHeFsF0AMZp4Wx5mQ4CeQmvFdkYO6KVQ22yKpIituN1QktjgD3hrerFdoM0LdlrzX5wJHmqFukBdTrHQtB24pjw7muRfoQUCtA4JLxvvWiu+ldyh4WgLboMbQA6DdIL0ANEgBsPwRPsJnaf4c960Zz4VvKYheAEMGnBGze0KxpnJC9YCNrC1crUIg0BBdSFjwVgGhetAhD1Im+ifrv9AIwPRWvdhhwBvqQhWYdpSjQ+8Hhc6pgDiqgr8B/zlPQWgRm/zSvSWAIOgFGLnjjl9RaBZb+mLmaBTxHKAbvAIpAAuiUSwBLqZZCnvF7fk5roBdZQ/0zzI8+MArCBxYdfm48DRIF51BYcYFjqj8Ad6p4eA08+NFtoPP4AveKFMti+yFUAAAAASUVORK5CYII="/></a>
+      <% } %>
+    <div class="inner">
+          <p>Made with <i class="icon ion-heart" style="color: #e25555;"></i> By
+			<a style="text-decoration:none; font-family: Cochin;" href="mailto:gdeepak884@gmail.com" target="_blank">Deepak Gupta</a>
+		</p>
+    </div>
+    </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
